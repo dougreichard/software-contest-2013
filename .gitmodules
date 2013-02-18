@@ -1,0 +1,3 @@
+[submodule "softwarecontest/src/libuv"]
+	path = softwarecontest/src/libuv
+	url = git://github.com/joyent/libuv.git
