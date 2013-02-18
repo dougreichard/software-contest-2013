@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="game.css">
+    <script src='json2.js' type="text/javascript"></script>
+    <script src='game.js' type="text/javascript"></script>
+    <title></title>
+</head>
+<body>
+<div id="board" >
+    <img width="100%" src="images/Map.png">
+</div>
+
+<div id="tutorial">
+    <p>This is a special app so you can see how the card and pushing tiles work.</p>
+    <p>S key      =  Start new card.</p>
+    <p>H key      =  Hide/Show the arrow icons hints.</p>
+    <p>Arrow Keys =  Move the push tile.</p>
+</div>
+
+<div id="pushtype" class="tile pushtype"><img src="images/tile_push_small.png"></div>
+<div id="impact" class="tile impact"></div>
+
+<div id="tile00" class="tile tileRow0 tileCol0"><img src="images/tile_push_small.png"></div>
+<div id="tile01" class="tile tileRow0 tileCol1"><img src="images/tile_push_small.png"></div>
+<div id="tile02" class="tile tileRow0 tileCol2"><img src="images/tile_push_small.png"></div>
+<div id="tile03" class="tile tileRow0 tileCol3"><img src="images/tile_push_small.png"></div>
+<div id="tile04" class="tile tileRow0 tileCol4"><img src="images/tile_push_small.png"></div>
+
+<div id="tile10" class="tile tileRow1 tileCol0"><img src="images/tile_push_small.png"></div>
+<div id="tile11" class="tile tileRow1 tileCol1"><img src="images/tile_push_small.png"></div>
+<div id="tile12" class="tile tileRow1 tileCol2"><img src="images/tile_push_small.png"></div>
+<div id="tile13" class="tile tileRow1 tileCol3"><img src="images/tile_push_small.png"></div>
+<div id="tile14" class="tile tileRow1 tileCol4"><img src="images/tile_push_small.png"></div>
+
+<div id="tile20" class="tile tileRow2 tileCol0"><img src="images/tile_push_small.png"></div>
+<div id="tile21" class="tile tileRow2 tileCol1"><img src="images/tile_push_small.png"></div>
+<div id="tile22" class="tile tileRow2 tileCol2"><img src="images/tile_push_small.png"></div>
+<div id="tile23" class="tile tileRow2 tileCol3"><img src="images/tile_push_small.png"></div>
+<div id="tile24" class="tile tileRow2 tileCol4"><img src="images/tile_push_small.png"></div>
+
+<div id="tile30" class="tile tileRow3 tileCol0"><img src="images/tile_push_small.png"></div>
+<div id="tile31" class="tile tileRow3 tileCol1"><img src="images/tile_push_small.png"></div>
+<div id="tile32" class="tile tileRow3 tileCol2"><img src="images/tile_push_small.png"></div>
+<div id="tile33" class="tile tileRow3 tileCol3"><img src="images/tile_push_small.png"></div>
+<div id="tile34" class="tile tileRow3 tileCol4"><img src="images/tile_push_small.png"></div>
+
+<div id="tile40" class="tile tileRow4 tileCol0"><img src="images/tile_push_small.png"></div>
+<div id="tile41" class="tile tileRow4 tileCol1"><img src="images/tile_push_small.png"></div>
+<div id="tile42" class="tile tileRow4 tileCol2"><img src="images/tile_push_small.png"></div>
+<div id="tile43" class="tile tileRow4 tileCol3"><img src="images/tile_push_small.png"></div>
+<div id="tile44" class="tile tileRow4 tileCol4"><img src="images/tile_push_small.png"></div>
+
+<div id="up" class="tile tileRow4 tileCol0"><img src="images/tile_up.png"></div>
+<div id="down" class="tile tileRow4 tileCol0"><img src="images/tile_down.png"></div>
+<div id="left" class="tile tileRow4 tileCol0"><img src="images/tile_left.png"></div>
+<div id="right" class="tile tileRow4 tileCol0"><img src="images/tile_right.png"></div>
+
+
+
+</body>
+<script>
+    var xmlhttp=new XMLHttpRequest();
+    var input = true;
+    var showGuide = true;
+    var impact = 0;
+    var multiplier = 1;
+    var gameType = "cardgame";
+
+    window.onload=function(){
+
+     };
+
+
+
+    if (document.addEventListener) {
+        xmlhttp.onload = reqListener;
+    }else  { // IE
+       xmlhttp.onreadystatechange = reqListener;
+    }
+
+
+    if (document.addEventListener) {
+        document.addEventListener("keydown", onKeyDown, true);
+    } else if (document.attachEvent) { // IE
+        document.attachEvent("onkeydown", onKeyDown);
+    }
+
+
+</script>
+</html>

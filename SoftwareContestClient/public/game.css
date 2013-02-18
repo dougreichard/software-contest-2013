@@ -1,0 +1,82 @@
+
+
+#board {
+    position:absolute; top:0px;left:0px;width:1024px;height:768px;}
+
+#tutorial {
+    position:absolute; top:33px;left:50px;width:924px;height:668px;}
+
+
+
+#castle0 {position:absolute; top:180px;left:105px;}
+#castle1 {position:absolute; top:180px;left:730px;}
+#castle0impact {position:absolute; top:160px;left:190px;font:25px bold arial,sans-serif;background-color:#FFCC66;height:27px;}
+#castle1impact {position:absolute; top:160px;left:820px;font:25px bold arial,sans-serif;background-color:#FFCC66;height:27px;}
+
+#leftCatapult {position:absolute; top:270px;left:165px;}
+#rightCatapult {position:absolute; top:270px;left:765px;}
+
+.gameover {position:absolute;top:200px;left:250px}
+
+.tile {position:absolute;width:50px;height:50px;}
+
+.pushtype {left:100px;top:470px}
+.impact {left:170px;top:490px}
+
+.tileCol0 {left:210px}
+.tileRow0 {top:470px;}
+.tileCol1 {left:260px;}
+.tileRow1 {top:520px;}
+.tileCol2 {left:310px;}
+.tileRow2 {top:570px;}
+.tileCol3 {left:360px;}
+.tileRow3 {top:620px;}
+.tileCol4 {left:410px;}
+.tileRow4 {top:670px}
+
+.queue {position:absolute;width:30px;height:30px;}
+.queueRow {top:210px}
+.queueLeft2 {left:155px}
+.queueLeft1 {left:120px}
+.queueLeft0 {left:85px}
+
+.queueRight2 {left:860px}
+.queueRight1 {left:895px}
+.queueRight0 {left:930px}
+
+
+.queueImpactRow {top:180px;font:25px bold arial,sans-serif;background-color:#FFCC66;height:27px;}
+
+
+.army {position:absolute;width:36px;height:70px;}
+.armyRow {top:190px}
+.armyImpactRow {top:285px;font:25px bold arial,sans-serif;background-color:#FFCC66;height:27px;}
+.armyCol0 {left:310px}
+.armyCol1 {left:370px}
+.armyCol2 {left:430px}
+.armyCol3 {left:490px}
+.armyCol4 {left:550px}
+.armyCol5 {left:610px}
+.armyCol6 {left:670px}
+
+
+
+.siege {position:absolute;}
+.siegeRow0 {top:130px}
+.siegeRow1 {top:100px}
+.siegeRow2 {top:190px}
+
+.siegeLeft0 {left:370px}
+.siegeLeft1 {left:550px}
+.siegeLeft2 {left:710px}
+
+.siegeRight0 {left:610px}
+.siegeRight1 {left:430px}
+.siegeRight2 {left:280px}
+
+
+.siegeRow0impact {top:110px;font:25px bold arial,sans-serif;background-color:#FFCC66;height:27px;}
+.siegeRow1impact {top:80px;font:25px bold arial,sans-serif;background-color:#FFCC66;height:27px;}
+.siegeRow2impact {top:170px;font:25px bold arial,sans-serif;background-color:#FFCC66;height:27px;}
+
+
