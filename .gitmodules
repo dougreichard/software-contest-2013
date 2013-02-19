@@ -1,3 +1,9 @@
 [submodule "softwarecontest/src/libuv"]
 	path = softwarecontest/src/libuv
 	url = git://github.com/JuliaLang/libuv.git
+[submodule "deps/libuv"]
+	path = deps/libuv
+	url = https://github.com/joyent/libuv.git
+[submodule "softwarecontest/deps/libuv"]
+	path = softwarecontest/deps/libuv
+	url = https://github.com/joyent/libuv.git
