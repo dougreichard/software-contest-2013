@@ -17,13 +17,13 @@
           'src/testharness.cpp'
         ],
 		'include_dirs': [
-			'src/libuv/include'
+			'deps/libuv/include'
 		],
 		'msvs_settings': {
 		
 		'VCLinkerTool': {
             'AdditionalLibraryDirectories': [
-              '../lib/libuv/Release',
+              'deps/libuv/Release',
             ],
 			'AdditionalDependencies': [
 				'ws2_32.lib',
