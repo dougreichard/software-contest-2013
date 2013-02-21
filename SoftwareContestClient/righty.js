@@ -29,7 +29,7 @@ var player = net.createConnection(8124, "127.0.0.1", function () {
             console.log( "got a card"+data);
             console.log( "Right looks good");
             player.write(JSON.stringify({push:"R"}));
-        } else if (obj.winner) {
+        } else if (obj.castles) {
             // Game State
             console.log( "got game state"+data);
             player.write(JSON.stringify({ready:true}));

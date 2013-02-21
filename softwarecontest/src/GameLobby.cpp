@@ -7,16 +7,16 @@ ClientSocket* GameLobby::AllocClient() {
 	_clients.push_back(client);
 	return client;
 }
-
-
 // Create Game
 // Client Creates a Single Game
 // Create a Card Game
 // Run Tournament
-
-
 void GameLobby::OnString(string s) {
 	
+}
+
+list<GameClient*>& GameLobby::getClients() {
+	return this->_clients;
 }
 
 void GameLobby::leave(GameClient* client) {

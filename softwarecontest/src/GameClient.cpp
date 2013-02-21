@@ -9,6 +9,7 @@ using namespace rapidjson;
 #include "GameLobby.h"
 #include "CastlePlayer.h"
 #include <iostream>
+#include "TournamentLoserDropped.h"
 using namespace std;
 
 
@@ -16,6 +17,7 @@ GameClient::GameClient(GameLobby* lobby) : ClientSocket() 	{
 	_game = NULL;
 	_lobby = lobby;
 	_callback = NULL;
+	_tournament = NULL;
 }
 
 void GameClient::ResquestCallback(PlayerResult* cb) {
@@ -31,10 +33,14 @@ void GameClient::OnString(string s) {
 		_callback->Callback(s);
 	}
 
-	Document doc;
+	GenericDocument<UTF8<>, CrtAllocator> doc;
 	doc.Parse<0>(s.c_str());
 	if (doc.HasParseError()) {
 		// You suck
+		if (doc.HasMember("host")) {
+			int x=0;
+			x=7;
+		}
 	}
 	if (doc.HasMember("host")) {
 		string gameType = doc["host"].GetString();
@@ -66,6 +72,16 @@ void GameClient::OnString(string s) {
 			_game->Start();
 
 		}
+		else if (gameType == "tournament") {
+			if (_tournament != NULL) {
+				delete _tournament;
+				_tournament = NULL;
+			}
+
+			_tournament = new TournamentLoserDrop(_lobby, 10);
+			_tournament->Play();
+
+		}
 	} 
 	// Card Game 
 	else if (doc.HasMember("command")) {
@@ -88,3 +104,6 @@ void GameClient::OnDisconnect() {
 	_lobby->leave(this);
 }
 
+int GameClient::getID() {
+	return (int)this;
+}

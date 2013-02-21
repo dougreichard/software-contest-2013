@@ -78,11 +78,30 @@ void SingleGame::Start() {
 	_turn[1].fromRandom();
 	_turn[1].fromCard(&_turn[1]);
 
-	cout << _players[0]->getName() << " VS. " << _players[1]->getName();
-	cout << " lets get ready to crumble\n";
+	//cout << _players[0]->getName() << " VS. " << _players[1]->getName();
+	//cout << " lets get ready to crumble\n";
 
-	_players[0]->startGame("{\"id\":123,\"player\":1}", _waiting[0]);
-	_players[1]->startGame("{\"id\":123,\"player\":2}", _waiting[1]);
+
+
+	
+	for (int p=0;p<2;p++)  {
+		::StringStream ss;	
+		Writer<::StringStream> writer(ss); 
+				
+		writer.StartObject();
+		// Send other players ID
+		writer.String("id");
+		writer.Int(_players[!p]->getID());
+
+		writer.String("player");
+		writer.Int(p+1);
+
+		writer.EndObject();
+		string  resp = ss.str();
+		//cout << resp;
+
+		_players[p]->startGame(resp, _waiting[p]);
+	}
 }
 
 
@@ -96,10 +115,13 @@ void SingleGame::Command(string s) {
 	_arrived[0] = NULL;
 	_arrived[1] = NULL;
 
-	_turn[0].refill();
-	//_turn[0].fromCard(&_turn[0]);
-	_turn[1].refill();
-	//_turn[1].fromCard(&_turn[1]);
+	//_turn[0].refill();
+	//_turn[1].refill();
+
+	_turn[0].fromRandom();
+	_turn[0].fromCard(&_turn[0]);
+	_turn[1].fromRandom();
+	_turn[1].fromCard(&_turn[1]);
 
 	_players[0]->getPushes(_turn[0], _waiting[0]);
 	_players[1]->getPushes(_turn[1], _waiting[1]);
@@ -172,7 +194,7 @@ void SingleGame::PlayerStepCallback(PlayerResult* arrival) {
 	_board.toJSon(writer);
 	writer.EndObject();
 	string  resp = ss.str();
-	cout << resp;
+	//cout << resp;
 
 	// SendGame State to players
 	SendGameState(resp);
@@ -209,7 +231,7 @@ void SingleGame::PlayerStartCallback(PlayerResult* arrival) {
 		writer.EndObject();
 		
 		string  resp = ss.str();
-		cout << resp;
+		//cout << resp;
 	
 		// SendGame State to players
 		SendGameState(resp);
@@ -245,7 +267,7 @@ void SingleGame::PlayerStateCallback(PlayerResult* arrival) {
 	writer.EndObject();
 		
 	string  resp = ss.str();
-	cout << resp;
+	//cout << resp;
 	Broadcast(resp);
 }
 

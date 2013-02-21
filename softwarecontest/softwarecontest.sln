@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "game_engine", "game_engine.vcxproj", "{D9433384-7C8A-2112-E725-D7DC3C477A62}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Win32 = Default|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D9433384-7C8A-2112-E725-D7DC3C477A62}.Default|Win32.ActiveCfg = Default|Win32
+		{D9433384-7C8A-2112-E725-D7DC3C477A62}.Default|Win32.Build.0 = Default|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+EndGlobal

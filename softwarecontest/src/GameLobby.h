@@ -10,10 +10,11 @@ public:
 	void leave(GameClient* client);
 
 	GameClient* getPlayerByName(string name);
+	list<GameClient*>& getClients();
 protected:
 	virtual ClientSocket* AllocClient();
 	virtual void OnString(string s);
-private:
+protected:
 	list<GameClient*> _clients;
 	list<GameClient*> _goneclients;
 

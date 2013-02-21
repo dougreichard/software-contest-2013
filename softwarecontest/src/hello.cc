@@ -1,6 +1,7 @@
 #include <iostream>
 #include <uv.h>
 
+
 using namespace std;
 
 #include "GameLobby.h"
@@ -14,7 +15,9 @@ void start_game(uv_loop_t* loop) {
 
 int main ()
 {
-	//doTest();
+	//	doTest();
+	//if (true) return 0;
+
 	uv_loop_t* loop = uv_loop_new();
 	
 	start_game(loop);
@@ -22,6 +25,8 @@ int main ()
 	cout << "Hello World!" << '\n';
 	uv_run(loop, UV_RUN_DEFAULT);
 	cout << "Goodbye!" << '\n';
+
+	
 	
 	return 0;
 }

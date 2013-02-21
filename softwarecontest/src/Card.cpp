@@ -40,7 +40,7 @@ void Card::fromString (const string& s) {
 	bool hasPlayer = false;
 
 	for (int row=0;row<5;row++) {
-		for (int col=0;col<6;col++) {
+		for (int col=0;col<5;col++) {
 			Card::cardType c = getTypeFromChar(s[row*6+col]);
 			_slots[row][col] = c;
 			// Col 6 is comma

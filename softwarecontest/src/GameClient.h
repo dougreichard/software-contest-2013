@@ -6,6 +6,7 @@ class GameHost;
 class GameLobby;
 class PlayerResult;
 
+class TournamentLoserDrop;
 class GameClient : public ClientSocket {
 public:
 	GameClient(GameLobby* lobby);
@@ -13,10 +14,12 @@ public:
 	virtual void OnDisconnect();
 	string getName();
 	void ResquestCallback(PlayerResult* );
-private:
+	int getID();
+protected:
 	PlayerResult* _callback;
 	GameHost* _game;
 	GameLobby* _lobby;
 	string _name;
+	TournamentLoserDrop* _tournament;
 };
 

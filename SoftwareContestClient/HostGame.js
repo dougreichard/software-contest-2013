@@ -14,7 +14,7 @@ fs.readFile(file, 'utf8', function (err, data) {
 
     console.log(data);
 
-    var l = cp.fork('lefty.js');
+    var l = cp.fork('lefty.js', ['lefty', 'L']);
     l.on('message', function (msg){
 
         var r = cp.fork('righty.js');
@@ -53,7 +53,3 @@ function runGame() {
         });
     });
 }
-
-
-
-

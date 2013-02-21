@@ -21,6 +21,7 @@ public:
 	virtual void getPushes(Card& card, PlayerResult* cb)=0;
 	virtual void startGame(string s, PlayerResult* cb)=0;  // Send the game state
 
+	virtual int getID()=0;
 	virtual string getName()=0;
 };
 
@@ -31,6 +32,7 @@ public:
 	virtual void getPushes(Card& card, PlayerResult* cb);
 	virtual void startGame(string s, PlayerResult* cb);  // Send the game state
 
+	virtual int getID();
 	virtual string getName();
 };
 
@@ -41,6 +43,7 @@ public:
 	virtual void getPushes(Card& card, PlayerResult* cb);
 	virtual void startGame(string s, PlayerResult* cb);  // Send the game state
 
+	virtual int getID();
 	virtual string getName();
 };
 
@@ -53,6 +56,7 @@ public:
 	virtual void getPushes(Card& card, PlayerResult* cb);
 	virtual void startGame(string s, PlayerResult* cb);  // Send the game state
 
+	virtual int getID();
 	virtual string getName();
 };
 

@@ -14,7 +14,8 @@
           'src/GameLobby.cpp',
           'src/SingleGame.cpp',
           'src/Socket.cpp',
-          'src/testharness.cpp'
+          'src/testharness.cpp',
+		  'src/TournamentLoserDropped.cpp'
         ],
 		'include_dirs': [
 			'deps/libuv/include'

@@ -61,6 +61,8 @@ void Socket::socket_read(uv_stream_t *socket, ssize_t nread, uv_buf_t buf) {
 	}
 		
 	socketClass->OnData(nread, buf);
+	free(buf.base);
+	
 }
 
 uv_buf_t Socket::alloc_buffer(uv_handle_t *handle, size_t suggested_size) {
@@ -172,16 +174,21 @@ ClientSocket::ClientSocket()
 
 void ClientSocket::BeginConnect(uv_loop_t* loop, string addr, int port) {
 	
-	uv_connect_t connect;
+	uv_connect_t* connect = (uv_connect_t*)malloc(sizeof(uv_connect_t));
 	uv_tcp_init(loop, getSocket());
 	getSocket()->data = this;
 
-	struct sockaddr_in dest = uv_ip4_addr("127.0.0.1", 8124);
-	uv_tcp_connect(&connect, getSocket(), dest, on_connect);
+	struct sockaddr_in dest = uv_ip4_addr(addr.c_str(), port);
+	uv_tcp_connect(connect, getSocket(), dest, on_connect);
 }
 
 void ClientSocket::on_connect(uv_connect_t* req, int status) {
 	ClientSocket* client = (ClientSocket*)req->handle->data;
+	// Free Memory
+	free(req);
+
+
+
 	if (status == -1) {
 		// Error close the lobby
 		cout << "connect error" << '\n';

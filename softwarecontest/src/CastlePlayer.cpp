@@ -141,3 +141,15 @@ string RushPlayer::getName() {
 string SocketPlayer::getName() {
 	return _socket->getName();
 }
+
+int BoomPlayer::getID() {
+	return (int)this;;
+}
+
+int RushPlayer::getID() {
+	return (int)this;
+}
+
+int SocketPlayer::getID() {
+	return _socket->getID();
+}
