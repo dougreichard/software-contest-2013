@@ -18,6 +18,7 @@ public:
 	int totalCastleWins;
 	int totalGameWins;
 	int totalGameLoses;
+	GameClient* client;
 };
 
 struct Heat {
@@ -28,10 +29,19 @@ struct Heat {
 	int castleWins[2];
 };
 
-// This is a client socket, but its a true game client not 
-class TournamentLoserDrop : public ClientSocket {
+
+class ITournament {
 public:
-	TournamentLoserDrop(GameLobby* lobby, int heats);
+	~ITournament (){}
+	virtual int gameNum()=0;
+	virtual int heatNum()=0;
+	virtual void Play()=0;
+};
+
+// This is a client socket, but its a true game client not 
+class TournamentLoserDrop : public ClientSocket, public ITournament  {
+public:
+	TournamentLoserDrop(GameLobby* lobby, GameClient* host, int heats);
 	void Play();
 protected:
 	// Overrides
@@ -56,6 +66,10 @@ protected:
 	virtual void OnEndGame();
 
 
+	virtual int gameNum();
+	virtual int heatNum();
+
+
 
 protected:
 	int _round;
@@ -67,6 +81,7 @@ protected:
 
 	map<int, Record> _records;
 	GameLobby* _lobby;
+	GameClient* _host;
 
 	// heat data
 	int _currentGameNum;

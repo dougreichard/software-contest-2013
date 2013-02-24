@@ -4,13 +4,14 @@
 #include "../include/rapidjson/document.h"
 
 #include "CastlePlayer.h"
+#include "TournamentLoserDropped.h"
 
 using namespace std;
 using namespace rapidjson;
 
 
 
-SingleGame::SingleGame(GameClient* host, GameClient* one, GameClient* two) : GameHost(host) {
+SingleGame::SingleGame(GameClient* host, GameClient* one, GameClient* two, ITournament * tourny) : GameHost(host) {
 
 
 	_players[0] = (one == NULL) ? (Player*)new BoomPlayer() : new SocketPlayer(one);
@@ -21,6 +22,9 @@ SingleGame::SingleGame(GameClient* host, GameClient* one, GameClient* two) : Gam
 	_waiting[1] = NULL;
 	_arrived[0] = NULL;
 	_arrived[1] = NULL;
+
+	_tournament = tourny;
+	_turnCount = 0;
 
 }
 SingleGame::~SingleGame() {
@@ -73,11 +77,17 @@ void SingleGame::Start() {
 	_arrived[0] = NULL;
 	_arrived[1] = NULL;
 
-	_turn[0].fromRandom();
-	_turn[0].fromCard(&_turn[0]);
-	_turn[1].fromRandom();
-	_turn[1].fromCard(&_turn[1]);
+	if (_tournament != NULL) {
+		_turn[0].fromCard( Card::getCardFromGame(0,_tournament->gameNum(), _tournament->heatNum() ).get());
+		_turn[1].fromCard(Card::getCardFromGame(1,_tournament->gameNum(), _tournament->heatNum() ).get());
 
+	} else {
+		_turn[0].fromRandom();
+		_turn[0].fromCard(&_turn[0]);
+		_turn[1].fromRandom();
+		_turn[1].fromCard(&_turn[1]);
+	}
+	_turnCount = 0;
 	//cout << _players[0]->getName() << " VS. " << _players[1]->getName();
 	//cout << " lets get ready to crumble\n";
 
@@ -115,13 +125,19 @@ void SingleGame::Command(string s) {
 	_arrived[0] = NULL;
 	_arrived[1] = NULL;
 
-	//_turn[0].refill();
-	//_turn[1].refill();
+	if (_tournament != NULL) {
+		_turn[0].refill(0, _tournament->gameNum(),_tournament->heatNum(), _turnCount );
+		_turn[1].refill(1, _tournament->gameNum(),_tournament->heatNum(), _turnCount );
+		_turnCount++;
+	} else {
+		_turn[0].refill();
+		_turn[1].refill();
+	}
 
-	_turn[0].fromRandom();
-	_turn[0].fromCard(&_turn[0]);
-	_turn[1].fromRandom();
-	_turn[1].fromCard(&_turn[1]);
+	//_turn[0].fromRandom();
+	//_turn[0].fromCard(&_turn[0]);
+	//_turn[1].fromRandom();
+	//_turn[1].fromCard(&_turn[1]);
 
 	_players[0]->getPushes(_turn[0], _waiting[0]);
 	_players[1]->getPushes(_turn[1], _waiting[1]);
@@ -149,10 +165,12 @@ void SingleGame::PlayerStepCallback(PlayerResult* arrival) {
 
 	if (_arrived[0] == NULL) {
 		_arrived[0] = arrival;
+		//cout << "P1";
 		return;
-	} else if (_arrived[1] != NULL) {
+	} else if (_arrived[1] == NULL) {
 		// Error
 		_arrived[1] = arrival;
+		//cout << "P2";
 	}
 	
 	// Both have arrived

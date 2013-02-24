@@ -1,7 +1,7 @@
 #include "Card.h"
 #include "../include/rapidjson/document.h"
 #include "../include/rapidjson/writer.h"
-
+#include <assert.h>
 
 #include <sstream>
 
@@ -252,7 +252,7 @@ PushableCard::PushableCard() {
 	fromCard(this);//Reset play pos
 }
 
-void PushableCard::fromCard(const Card* rhs) {
+void PushableCard::fromCard(const Card const* rhs) {
 	this->_pushType = cardType::empty;
 
 	for (int row=0;row<5;row++) {
@@ -525,7 +525,85 @@ void PushableCard::refill() {
 	}
 }
 
+
+void PushableCard::refill(int player, int game, int heat, int turn) {
+	this->_pushType = Card::empty;
+
+
+	int tileNum = game*heat*15*turn;
+	// Player two gets the back of the deck
+	if (player) tileNum = tileDeck.size() - 1 - tileNum;
+
+	while (tileNum >= tileDeck.size()) tileNum -= tileDeck.size();
+	if (tileNum < 0) tileNum += tileDeck.size();
+
+
+	for (int row=0;row<5;row++) {
+		for (int col=0;col<5;col++) {
+			if (_slots[row][col] == Card::empty) {
+				_slots[row][col] = tileDeck[tileNum];
+				if (player) tileNum--;
+				else tileNum++;
+
+				if (tileNum >= tileDeck.size()) tileNum -= tileDeck.size();
+				if (tileNum < 0) tileNum += tileDeck.size();
+			}
+		}
+	}
+}
+
+
 // Looks like there is a multiplier
 // count * push turn so push 2 turn 1 = 2, push 2 turn 2 = 4, etc.
 
 // Also looks like you do not slide on empties, you have to push
+
+
+
+
+void Card::fillCardDeck(int heatCount, int gameCount){
+	cardDeck.clear();
+	// Generate 2 cards for every 3 games
+	// for every heat
+	for (int c=0;c < heatCount* (gameCount*2)/3; c++) {
+		shared_ptr<Card> ca(new Card());
+			assert(ca->isValid());
+		cardDeck.push_back(ca);
+	}
+}
+void Card::fillTileDeck(int heatCount, int gameCount) {
+	tileDeck.clear();
+
+	for (int c=0;c < heatCount*gameCount*25; c++) {
+		int dice_roll = _distribution(_generator);
+
+		if(1 == dice_roll) tileDeck.push_back(cardType::siege);
+		else if(2 == dice_roll) tileDeck.push_back(cardType::repair);
+		else if(3 == dice_roll) tileDeck.push_back(cardType::army);
+		
+	}
+}
+
+
+shared_ptr<Card> Card::getCardFromGame(int player, int game, int heat) {
+	int cardNum = (game/2)*heat;
+	if (game%3 == 0) {
+		// Player one gets the first card
+		//  Player two get the second
+		// Note: Players are swapped elsewhere
+		return cardDeck[cardNum+player];
+	} if (game%3 == 1) {
+		// Player one gets the first card
+		//  Player two get the second
+		// Note: Players are swapped elsewhere
+		return cardDeck[cardNum+ (!player)];
+	} else {
+		// Both get same card
+		return cardDeck[cardNum];
+	}
+
+	return shared_ptr<Card>(NULL);
+}
+
+vector<shared_ptr<Card> > Card::cardDeck;
+vector<Card::cardType> Card::tileDeck;

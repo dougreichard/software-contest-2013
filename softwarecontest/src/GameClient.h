@@ -6,7 +6,7 @@ class GameHost;
 class GameLobby;
 class PlayerResult;
 
-class TournamentLoserDrop;
+class ITournament;
 class GameClient : public ClientSocket {
 public:
 	GameClient(GameLobby* lobby);
@@ -20,6 +20,6 @@ protected:
 	GameHost* _game;
 	GameLobby* _lobby;
 	string _name;
-	TournamentLoserDrop* _tournament;
+	static ITournament* _tournament;
 };
 

@@ -12,12 +12,14 @@ using namespace rapidjson;
 #include "TournamentLoserDropped.h"
 using namespace std;
 
+/// HACK!!!
+ITournament* GameClient::_tournament = NULL;
 
 GameClient::GameClient(GameLobby* lobby) : ClientSocket() 	{
 	_game = NULL;
 	_lobby = lobby;
 	_callback = NULL;
-	_tournament = NULL;
+	// _tournament = NULL;
 }
 
 void GameClient::ResquestCallback(PlayerResult* cb) {
@@ -68,7 +70,7 @@ void GameClient::OnString(string s) {
 			}
 
 
-			_game = new SingleGame(this, one, two);
+			_game = new SingleGame(this, one, two, _tournament);
 			_game->Start();
 
 		}
@@ -77,8 +79,13 @@ void GameClient::OnString(string s) {
 				delete _tournament;
 				_tournament = NULL;
 			}
+			int heat = 10;
+			if (doc.HasMember("heat")) {
+				heat = doc["heat"].GetInt();
+			}
 
-			_tournament = new TournamentLoserDrop(_lobby, 10);
+
+			_tournament = new TournamentLoserDrop(_lobby, this, heat);
 			_tournament->Play();
 
 		}

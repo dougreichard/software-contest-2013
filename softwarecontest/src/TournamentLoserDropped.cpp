@@ -2,6 +2,7 @@
 #include "SingleGame.h"
 #include "GameClient.h"
 #include <iostream>
+#include <iomanip>
 
 #include "../include/rapidjson/document.h"
 #include "../include/rapidjson/writer.h"
@@ -14,7 +15,10 @@ Record::Record () {
 	castleWins = 0;
 	totalWins = 0;
 	totalLoses = 0;
+	totalGameWins = 0;
+	totalGameLoses = 0;
 	totalCastleWins = 0;
+	client = NULL;;
 
 }
 
@@ -35,10 +39,19 @@ void TournamentLoserDrop::OnConnect() {
 	OnStartTournament();
 }
 
-TournamentLoserDrop::TournamentLoserDrop(GameLobby* lobby, int heats) {
+TournamentLoserDrop::TournamentLoserDrop(GameLobby* lobby, GameClient* host, int heats) {
 	_heatCount = heats;
 	_lobby = lobby;
 	_round = 0;
+	_host = host;
+
+	while (!(_heatCount %2)) {
+		_heatCount ++;
+		while(_heatCount%3 ) {
+			cout << _heatCount << "moving to multiple of 3 and odd" << "\n";
+			_heatCount ++;
+		}
+	}
 
 }
 ////////////////////////////////////////////////////////////////////////////
@@ -48,7 +61,6 @@ void TournamentLoserDrop::OnStartTournament() {
 	// Clear records
 	// cout << "Tournament Start";
 	_round = 0;
-
 
 	for(list<GameClient*>::iterator i =  _lobby->getClients().begin(); 
 		i != _lobby->getClients().end();
@@ -66,6 +78,8 @@ void TournamentLoserDrop::OnStartTournament() {
 // A round runs through a number of heats all players playing each other
 void TournamentLoserDrop::OnStartRound() {
 	//cout << "Start of round " << _round << "\n";;
+	_heats.clear();
+	
 
 	/// clear records
 	for(list<GameClient*>::iterator remaining = players.begin(); 
@@ -75,13 +89,16 @@ void TournamentLoserDrop::OnStartRound() {
 		_records[(*remaining)->getID()].wins=0;
 		_records[(*remaining)->getID()].loses=0;
 		_records[(*remaining)->getID()].castleWins=0;
+		_records[(*remaining)->getID()].client = *remaining;
 	}
 	/// Build a list of games for this round
 	for(list<GameClient*>::iterator outer = players.begin(); 
 		outer != players.end();
 		outer++) {
 
-		for(list<GameClient*>::iterator inner = outer; 
+		list<GameClient*>::iterator inner = outer;
+		inner++;
+		for(; 
 			inner != players.end();
 			inner++) {
 
@@ -99,6 +116,10 @@ void TournamentLoserDrop::OnStartRound() {
 
 		}
 	}
+
+	Card::fillCardDeck(_heats.size(), this->_heatCount);
+	Card::fillTileDeck(_heats.size(), this->_heatCount);
+
 	_currentHeat = 0;	
 	OnStartHeat();
 
@@ -109,9 +130,12 @@ void TournamentLoserDrop::OnStartRound() {
 void TournamentLoserDrop::OnStartHeat() {
 	//cout << "Start of heat" << _currentHeat << "\n";;
 	stringstream msg;
-	msg << "Round: " << _round << "heat: " << _currentHeat <<
+	msg << '\n' << "Round: " << _round << "heat: " << _currentHeat << " " <<
 		_heats[_currentHeat].clients[0]->getName() << " vs " <<
-		_heats[_currentHeat].clients[0]->getName() << "\n";
+		_heats[_currentHeat].clients[1]->getName() << "\n";
+	// cout << msg.str();
+	// cout << '\n';
+	//_host->BeginWrite(msg.str());
 
 	_currentGameNum = 0;
 	OnStartGame();
@@ -134,8 +158,9 @@ private:
 void TournamentLoserDrop::OnStartGame() {
 	// cout << "Start of Game" << _currentGameNum << "\n";;
 
-	string one = _heats[_currentHeat].clients[_currentGameNum%2]->getName();
-	string two = _heats[_currentHeat].clients[!(_currentGameNum%2)]->getName();
+	string one = _heats[_currentHeat].clients[0]->getName();
+	string two = _heats[_currentHeat].clients[1]->getName();
+	_host->BeginWrite(".");
 
 	
 	
@@ -188,25 +213,22 @@ void TournamentLoserDrop::OnString(string s) {
 				BeginWrite(ss.str());
 			} else {
 				int winnerIndex = (winner -1);
-				if (_currentGameNum == _currentGameNum%2)
-					winnerIndex = !winnerIndex;
 
 				const Value& c = doc["castles"];
 				int castle = c[SizeType(winnerIndex)].GetInt();
 				if (castle >= 100) 
-					_heats[_currentHeat].castleWins[winnerIndex];
-					
+					_heats[_currentHeat].castleWins[winnerIndex]++;
 
 				_heats[_currentHeat].wins[winnerIndex]++;
 				_heats[_currentHeat].loses[!winnerIndex]++;
-
-				cout << "....." << "Winner of game {" << _currentGameNum << ")  " 
-					<<_heats[_currentHeat].clients[winnerIndex]->getName()
-					<<'[' << _heats[_currentHeat].wins[winnerIndex] << ']'
-					<< " ==== " <<_heats[_currentHeat].clients[!winnerIndex]->getName()
-					<<'[' << _heats[_currentHeat].wins[!winnerIndex] << ']'
-					<< '\n';
-
+/*
+				cout << '\r' << " Rnd: " << _round+1 << " Heat: " << _currentHeat+1 << " game {" << _currentGameNum+1 << ")  Winner: " << winner << " "
+					<<_heats[_currentHeat].clients[0]->getName()
+					<<'[' << _heats[_currentHeat].wins[0] << ']'
+					<< " ==== " <<_heats[_currentHeat].clients[1]->getName()
+					<<'[' << _heats[_currentHeat].wins[1] << ']';
+					
+					*/
 
 				// Check for caster win
 				OnEndGame();
@@ -223,7 +245,7 @@ void TournamentLoserDrop::OnEndGame() {
 
 	_currentGameNum++;
 		
-	if (_currentGameNum > _heatCount) OnEndHeat();
+	if (_currentGameNum >= _heatCount) OnEndHeat();
 	else OnStartGame();
 
 }
@@ -237,6 +259,7 @@ void TournamentLoserDrop::OnEndHeat() {
 		int id = _heats[_currentHeat].clients[p]->getID();
 		_records[id].totalGameWins+= _heats[_currentHeat].wins[p];
 		_records[id].totalCastleWins+=_heats[_currentHeat].castleWins[p];
+		_records[id].castleWins =_heats[_currentHeat].castleWins[p];
 		_records[id].totalGameLoses+= _heats[_currentHeat].loses[p];
 	}
 	// Player one wins
@@ -280,21 +303,78 @@ void TournamentLoserDrop::OnEndRound() {
 		i != _records.end();
 		i++)
 	{
+		if (i->second.elminated) continue;
 		leastWins = min(i->second.wins, leastWins);
 
 		i->second.totalWins+= i->second.wins;
 		i->second.totalLoses += i->second.loses;
 	}
+	stringstream msg;
+
+	msg << setw(15) <<
+			"name" << 
+			setw(7) <<
+			"gone" << 
+			setw(7) <<
+			"W" << 
+			setw(7) <<
+			"L" << 
+			setw(7) <<
+			"cW" << 
+			setw(7) <<
+			"TW" << 
+			setw(7) <<
+			"TL" << 
+			setw(7) <<
+			"TGW" << 
+			setw(7) <<
+			"TGL" << 
+			setw(7) <<
+			"TcW" <<
+			"\r\n";
+
 	// Gather all the players with that win total
 	for( map<int, Record>::iterator i = _records.begin();
 		i != _records.end();
 		i++)
 	{
-		if (leastWins == i->second.wins) {
-			i->second.elminated = true;
+
+		if (!i->second.elminated && (leastWins == i->second.wins)) {
+			i->second.elminated = _round+1;
 			removals.push_back(i->first);
 		}
+
+
+		msg << setw(15) <<
+			i->second.client->getName() << 
+			setw(7) <<
+			i->second.elminated << 
+			setw(7) <<
+			i->second.wins << 
+			setw(7) <<
+			i->second.loses << 
+			setw(7) <<
+			i->second.castleWins << 
+			setw(7) <<
+			i->second.totalWins << 
+			setw(7) <<
+			i->second.totalLoses << 
+			setw(7) <<
+			i->second.totalGameWins << 
+			setw(7) <<
+			i->second.totalGameLoses << 
+			setw(7) <<
+			i->second.totalCastleWins <<
+			"\r\n";
+
+
+			i->second.wins=0;
+			i->second.loses=0;
+			i->second.castleWins=0;
+
 	}
+
+	_host->BeginWrite(msg.str());
 
 	for (int i=0; i<removals.size(); i++) {
 		int idToRemove = removals[i];
@@ -309,6 +389,8 @@ void TournamentLoserDrop::OnEndRound() {
 		}
 	}
 
+
+	
 	if (players.size() == 1) 
 		cout << "Tournament End";
 	else {
@@ -319,4 +401,13 @@ void TournamentLoserDrop::OnEndRound() {
 
 void TournamentLoserDrop::OnEndTournament() {
 
+}
+
+
+
+int TournamentLoserDrop::gameNum() {
+	return _currentGameNum;
+}
+int TournamentLoserDrop::heatNum() {
+	return _currentHeat;
 }

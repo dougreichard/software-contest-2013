@@ -44,6 +44,17 @@ public:
 
 	static std::default_random_engine _generator;
 	static std::uniform_int_distribution<int> _distribution;
+
+	static void fillCardDeck(int heatCount, int gameCount);
+	static void fillTileDeck(int heatCount, int gameCount);
+
+	static shared_ptr<Card> getCardFromGame(int player, int game, int heat);
+
+protected:
+	static vector<shared_ptr<Card> > cardDeck;
+	static vector<Card::cardType> tileDeck;
+
+
 };
 
 
@@ -61,7 +72,7 @@ public:
 	PushableCard(const Card* card);
 	PushableCard();
 
-	void fromCard(const Card* rhs);
+	void fromCard(const Card const* rhs);
 	void fromString (const string& s, Card::cardType t = Card::empty);
 	string toJSon();
 	void toJSon(rapidjson::Writer<::StringStream>& w);
@@ -74,5 +85,6 @@ public:
 	cardType getPushedType();
 
 	void refill();
+	void refill(int player, int game, int heat, int turn);
 	
 };
