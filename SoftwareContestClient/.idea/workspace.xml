@@ -2,29 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0905bf94-71c9-4895-a8eb-3baf587ffabd" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/tourny.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../softwarecontest/src/Card.cpp" afterPath="$PROJECT_DIR$/../softwarecontest/src/Card.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../softwarecontest/src/Card.h" afterPath="$PROJECT_DIR$/../softwarecontest/src/Card.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../softwarecontest/src/GameClient.cpp" afterPath="$PROJECT_DIR$/../softwarecontest/src/GameClient.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../softwarecontest/src/GameClient.h" afterPath="$PROJECT_DIR$/../softwarecontest/src/GameClient.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../softwarecontest/src/SingleGame.cpp" afterPath="$PROJECT_DIR$/../softwarecontest/src/SingleGame.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../softwarecontest/src/SingleGame.h" afterPath="$PROJECT_DIR$/../softwarecontest/src/SingleGame.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../softwarecontest/src/TournamentLoserDropped.cpp" afterPath="$PROJECT_DIR$/../softwarecontest/src/TournamentLoserDropped.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../softwarecontest/src/TournamentLoserDropped.h" afterPath="$PROJECT_DIR$/../softwarecontest/src/TournamentLoserDropped.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/game.css" afterPath="$PROJECT_DIR$/public/game.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SoftwareContestClient.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/game.css" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1361194565306" ignored="false" />
     <file path="/index.html" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1361194818913" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/xinclude.xsd" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1360247000573" ignored="false" />
-    <file path="/app.js" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1360956703125" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/xinclude.xsd" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1362068111119" ignored="false" />
+    <file path="/app.js" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1361751303244" ignored="false" />
     <file path="/cardgame.html" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1360803042731" ignored="false" />
     <file path="/game.js" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1360803114229" ignored="false" />
     <file path="/righty.js" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1360693148965" ignored="false" />
     <file path="/HostGame.js" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1361386648705" ignored="false" />
     <file path="/lefty.js" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1361462655399" ignored="false" />
-    <file path="/Dummy.txt" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1361654333064" ignored="false" />
+    <file path="/Dummy.txt" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1362068102443" ignored="false" />
     <file path="/HostTournament.js" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1361462166406" ignored="false" />
+    <file path="/tourny.html" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1361751179771" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/xpath/lib/xpath.jar!/org/intellij/lang/xpath/xslt/resources/xslt-schema.xsd" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1362068111119" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/xpath/lib/xpath.jar!/org/intellij/lang/xpath/xslt/resources/documentation.xsl" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1362068111119" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/xml.xsd" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1362068111119" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/resources/relaxng.rng" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1362068111119" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/xhtml1-frameset.xsd" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1362068111119" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/xhtml1-strict.xsd" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1362068111119" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/xslt-1_0.xsd" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1362068111119" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/xslt-2_0.xsd" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1362068111119" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/XMLSchema-instance.xsd" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1362068111119" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/catalog.xsd" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1362068111119" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/html5/xhtml5.xsd" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1362068111119" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/xhtml1-transitional.xsd" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1362068111119" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/XMLSchema.xsd" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1362068111120" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/xpath/lib/xpath.jar!/org/intellij/lang/xpath/xslt/resources/documentation.xml" changelist="0905bf94-71c9-4895-a8eb-3baf587ffabd" time="1362068111120" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,71 +57,7 @@
     <favorites_list name="SoftwareContestClient" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="64" selection-start="1062" selection-end="1062" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HostTournament.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/HostTournament.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="38" selection-start="1845" selection-end="1845" vertical-scroll-proportion="0.34438306">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cardgame.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/cardgame.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="23" selection-start="3519" selection-end="3519" vertical-scroll-proportion="-1.1538461">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lefty.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lefty.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="102" selection-start="520" selection-end="520" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HostGame.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HostGame.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="0" selection-start="1637" selection-end="1637" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="game.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/game.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="93" column="59" selection-start="3261" selection-end="3261" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="game.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/game.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="23" selection-start="2077" selection-end="2077" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -130,21 +80,20 @@
         <option value="$PROJECT_DIR$/public/game.js" />
         <option value="$PROJECT_DIR$/configgame.js" />
         <option value="$PROJECT_DIR$/configgame.json" />
-        <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/public/game.css" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/HostGame.js" />
         <option value="$PROJECT_DIR$/righty.js" />
         <option value="$PROJECT_DIR$/HostTournament.js" />
         <option value="$PROJECT_DIR$/lefty.js" />
+        <option value="$PROJECT_DIR$/public/tourny.html" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/public/game.css" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="799" />
-    <option name="y" value="69" />
-    <option name="width" value="1022" />
-    <option name="height" value="726" />
+    <option name="width" value="960" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -222,11 +171,12 @@
     <property name="restartRequiresConfirmation" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\reichard\Documents\GitHub\software-contest-2013\SoftwareContestClient\public" />
       <recent name="C:\Users\reichard\Documents\GitHub\software-contest-2013\SoftwareContestClient" />
       <recent name="C:\Users\reichard\WebstormProjects\SoftwareContestClient\public\images" />
     </key>
@@ -235,7 +185,7 @@
       <recent name="C:\Users\reichard\WebstormProjects\SoftwareContestClient\public\images" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.HostTournament">
+  <component name="RunManager" selected="Node.js.WebGames">
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -254,7 +204,7 @@
       <setting name="jsFile" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="C:/Program Files (x86)/nodejs/node" path-to-js-file="app.js" working-dir="$PROJECT_DIR$" coffeescript-run="false">
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="C:/Program Files (x86)/nodejs/node" path-to-js-file="app.js" working-dir="$PROJECT_DIR$">
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
@@ -264,29 +214,29 @@
       </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
-    <configuration default="false" name="WebGames" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="C:/Program Files (x86)/nodejs/node" path-to-js-file="app.js" working-dir="$PROJECT_DIR$" coffeescript-run="false">
+    <configuration default="false" name="WebGames" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="C:/Program Files (x86)/nodejs/node" path-to-js-file="app.js" working-dir="$PROJECT_DIR$">
       <RunnerSettings RunnerId="NodeJS.run" />
       <ConfigurationWrapper RunnerId="NodeJS.run" />
       <method />
     </configuration>
-    <configuration default="false" name="Player" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="C:/Program Files (x86)/nodejs/node" path-to-js-file="righty.js" working-dir="$PROJECT_DIR$" coffeescript-run="false">
+    <configuration default="false" name="Player" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="C:/Program Files (x86)/nodejs/node" path-to-js-file="righty.js" working-dir="$PROJECT_DIR$">
       <RunnerSettings RunnerId="NodeJS.run" />
       <ConfigurationWrapper RunnerId="NodeJS.run" />
       <method />
     </configuration>
-    <configuration default="false" name="Lefty" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="C:/Program Files (x86)/nodejs/node" path-to-js-file="lefty.js" working-dir="$PROJECT_DIR$" coffeescript-run="false">
+    <configuration default="false" name="Lefty" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="C:/Program Files (x86)/nodejs/node" path-to-js-file="lefty.js" working-dir="$PROJECT_DIR$">
       <RunnerSettings RunnerId="NodeJS.run" />
       <ConfigurationWrapper RunnerId="NodeJS.run" />
       <method />
     </configuration>
-    <configuration default="false" name="HostGame.js" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="C:/Program Files (x86)/nodejs/node" path-to-js-file="HostGame.js" working-dir="$PROJECT_DIR$" coffeescript-run="false">
+    <configuration default="false" name="HostGame.js" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="C:/Program Files (x86)/nodejs/node" path-to-js-file="HostGame.js" working-dir="$PROJECT_DIR$">
       <RunnerSettings RunnerId="NodeJS.debug" />
       <RunnerSettings RunnerId="NodeJS.run" />
       <ConfigurationWrapper RunnerId="NodeJS.debug" />
       <ConfigurationWrapper RunnerId="NodeJS.run" />
       <method />
     </configuration>
-    <configuration default="false" name="HostTournament" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="C:/Program Files (x86)/nodejs/node" path-to-js-file="HostTournament.js" working-dir="$PROJECT_DIR$" coffeescript-run="false">
+    <configuration default="false" name="HostTournament" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="C:/Program Files (x86)/nodejs/node" path-to-js-file="HostTournament.js" working-dir="$PROJECT_DIR$">
       <RunnerSettings RunnerId="NodeJS.debug" />
       <RunnerSettings RunnerId="NodeJS.run" />
       <ConfigurationWrapper RunnerId="NodeJS.debug" />
@@ -349,18 +299,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="799" y="69" width="1022" height="726" extended-state="0" />
+    <frame x="0" y="0" width="960" height="1040" extended-state="1" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959481" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.696767" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17395833" sideWeight="0.456942" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19933185" sideWeight="0.628692" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39976275" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936978" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.543058" sideWeight="0.9880653" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37130803" sideWeight="0.9880653" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -410,6 +360,7 @@
     <option name="UPDATE_FILTER_SCOPE_NAME" />
     <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
     <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
+    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
     <option name="LAST_COMMIT_MESSAGE" />
@@ -431,35 +382,18 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app.js</url>
-          <line>11</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/righty.js</url>
           <line>34</line>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/HostTournament.js</url>
-          <line>33</line>
-          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="11" />
+      <option name="time" value="12" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="4" selection-start="90" selection-end="90" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/game.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="40" selection-start="51" selection-end="51" vertical-scroll-proportion="0.0">
@@ -501,25 +435,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/game.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="23" selection-start="2077" selection-end="2077" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="154" column="111" selection-start="7424" selection-end="7424" vertical-scroll-proportion="0.6723769">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="64" selection-start="1062" selection-end="1062" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="154" column="111" selection-start="7424" selection-end="7424" vertical-scroll-proportion="0.6723769" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HostGame.js">
@@ -538,21 +456,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lefty.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="102" selection-start="520" selection-end="520" vertical-scroll-proportion="0.0">
+        <state line="51" column="0" selection-start="1299" selection-end="1299" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/game.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="34" selection-start="673" selection-end="673" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="132" column="65" selection-start="2909" selection-end="2909" vertical-scroll-proportion="1.8964144" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/tourny.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="94" column="62" selection-start="4481" selection-end="4481" vertical-scroll-proportion="0.5107296" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HostTournament.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="38" selection-start="1845" selection-end="1845" vertical-scroll-proportion="0.57227486">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/cardgame.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="23" selection-start="3519" selection-end="3519" vertical-scroll-proportion="-1.1538461">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HostTournament.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="38" selection-start="1845" selection-end="1845" vertical-scroll-proportion="0.34438306">
+        <state line="66" column="23" selection-start="3519" selection-end="3519" vertical-scroll-proportion="0.38628158">
           <folding />
         </state>
       </provider>

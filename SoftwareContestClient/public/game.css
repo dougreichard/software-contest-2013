@@ -16,7 +16,7 @@
 #leftCatapult {position:absolute; top:270px;left:165px;}
 #rightCatapult {position:absolute; top:270px;left:765px;}
 
-.gameover {position:absolute;top:200px;left:250px}
+.gameover {position:absolute;top:400px;left:250px}
 
 .tile {position:absolute;width:50px;height:50px;}
 

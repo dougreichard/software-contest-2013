@@ -529,6 +529,12 @@ void PushableCard::refill() {
 void PushableCard::refill(int player, int game, int heat, int turn) {
 	this->_pushType = Card::empty;
 
+	if ((game%3) == 1) {
+		player = !player;
+	} else if ((game%3) == 2) {
+		player = 0;
+	} 
+	game -= game%3;
 
 	int tileNum = game*heat*15*turn;
 	// Player two gets the back of the deck
@@ -563,9 +569,11 @@ void PushableCard::refill(int player, int game, int heat, int turn) {
 
 void Card::fillCardDeck(int heatCount, int gameCount){
 	cardDeck.clear();
+	if (heatCount==0) heatCount = 1;
+	if (gameCount==0) gameCount = 1;
 	// Generate 2 cards for every 3 games
-	// for every heat
-	for (int c=0;c < heatCount* (gameCount*2)/3; c++) {
+	// for every heat, generat too many cards
+	for (int c=0;c < heatCount* (gameCount*2); c++) {
 		shared_ptr<Card> ca(new Card());
 			assert(ca->isValid());
 		cardDeck.push_back(ca);
@@ -573,6 +581,8 @@ void Card::fillCardDeck(int heatCount, int gameCount){
 }
 void Card::fillTileDeck(int heatCount, int gameCount) {
 	tileDeck.clear();
+	if (heatCount==0) heatCount = 1;
+	if (gameCount==0) gameCount = 1;
 
 	for (int c=0;c < heatCount*gameCount*25; c++) {
 		int dice_roll = _distribution(_generator);
@@ -587,6 +597,7 @@ void Card::fillTileDeck(int heatCount, int gameCount) {
 
 shared_ptr<Card> Card::getCardFromGame(int player, int game, int heat) {
 	int cardNum = (game/2)*heat;
+	cardNum %= cardDeck.size();
 	if (game%3 == 0) {
 		// Player one gets the first card
 		//  Player two get the second

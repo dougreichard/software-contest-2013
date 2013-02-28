@@ -23,12 +23,14 @@ public:
 	
 private:
 	PushableCard _turn[2];
+	PushableCard _before[2];
 	Player* _players[2];
 	CastleGameBoard _board;
 	GamePlayerResult* _waiting[2];
 	PlayerResult* _arrived[2];
 	ITournament* _tournament;
 	int _turnCount;
+	int _catCount;
 
 	int _state;
 };

@@ -116,7 +116,7 @@ void TournamentLoserDrop::OnStartRound() {
 
 		}
 	}
-
+	if (_heats.size()==0) OnEndTournament();
 	Card::fillCardDeck(_heats.size(), this->_heatCount);
 	Card::fillTileDeck(_heats.size(), this->_heatCount);
 
@@ -160,7 +160,7 @@ void TournamentLoserDrop::OnStartGame() {
 
 	string one = _heats[_currentHeat].clients[0]->getName();
 	string two = _heats[_currentHeat].clients[1]->getName();
-	_host->BeginWrite(".");
+	//_host->BeginWrite(".");
 
 	
 	
@@ -190,6 +190,7 @@ void TournamentLoserDrop::OnStartGame() {
 // Get game state see if there is a winner
 // If not, step the game
 void TournamentLoserDrop::OnString(string s) {
+		
 		// For Writing JSOn
 		MyStringStream ss;
 		Writer<MyStringStream> writer(ss);
@@ -200,6 +201,10 @@ void TournamentLoserDrop::OnString(string s) {
 		if (doc.HasParseError()) {
 			// ERROR 
 		}  else if (doc.HasMember("winner")) {
+
+			/// Web Game
+			//_host->BeginWrite(s);
+			
 			// Got Game State
 			//cout << "Game State" << s;
 			int winner = doc["winner"].GetInt();
@@ -214,13 +219,20 @@ void TournamentLoserDrop::OnString(string s) {
 			} else {
 				int winnerIndex = (winner -1);
 
-				const Value& c = doc["castles"];
-				int castle = c[SizeType(winnerIndex)].GetInt();
-				if (castle >= 100) 
-					_heats[_currentHeat].castleWins[winnerIndex]++;
+				/// 3 == tie
+				if (winner!=3) {
 
-				_heats[_currentHeat].wins[winnerIndex]++;
-				_heats[_currentHeat].loses[!winnerIndex]++;
+					const Value& c = doc["castles"];
+					int castle = c[SizeType(winnerIndex)].GetInt();
+					if (castle >= 100) 
+						_heats[_currentHeat].castleWins[winnerIndex]++;
+
+					_heats[_currentHeat].wins[winnerIndex]++;
+					_heats[_currentHeat].loses[!winnerIndex]++;
+				} else {
+					_heats[_currentHeat].loses[0]++;
+					_heats[_currentHeat].loses[1]++;
+				}
 /*
 				cout << '\r' << " Rnd: " << _round+1 << " Heat: " << _currentHeat+1 << " game {" << _currentGameNum+1 << ")  Winner: " << winner << " "
 					<<_heats[_currentHeat].clients[0]->getName()
@@ -391,7 +403,7 @@ void TournamentLoserDrop::OnEndRound() {
 
 
 	
-	if (players.size() == 1) 
+	if (players.size() <= 1) 
 		cout << "Tournament End";
 	else {
 		this->_round++;

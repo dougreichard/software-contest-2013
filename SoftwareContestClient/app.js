@@ -1,9 +1,14 @@
 var express = require("express");
-var net = require ('net')
+var net = require ('net');
+var sio = require('socket.io');
 
 var app = express.createServer();
 app.use(express.static(__dirname + '/public'));  // Static page location
 app.use(app.router);
+
+var io =sio.listen(app);
+
+var eventsocket = 0;
 
 var fs = require('fs');
 var file = __dirname + '/configgame.json';
@@ -29,6 +34,10 @@ console.log('App Server RUNNING at http://127.0.0.1:8080');
 
 
 var t = 0;
+
+io.sockets.on('connection', function(cl) {
+    eventsocket = cl;
+});
 
 
 var client = new net.Socket();
@@ -94,7 +103,7 @@ app.get('/singlegame/start', function(req,res){
 
     });
     var game = { host:"single", playerone:config.playerone, playertwo:config.playertwo};
-
+    console.log(game);
     client.write(JSON.stringify(game));
 });
 
@@ -110,4 +119,22 @@ app.get('/singlegame/turn', function(req,res){
 
     });
     client.write('{"command":"step"}');
+});
+
+
+app.get('/tournament', function(req,res){
+    //if (client.)
+
+    console.log("Got start request");
+
+    client.on('data', 	function (data) {
+        //var obj = JSON.parse(data);
+        console.log(data.length);
+        if (eventsocket) eventsocket.emit('state', data.toString());
+
+
+    });
+    var game = { host:"tournament", heat:15};
+    console.log(game);
+    client.write(JSON.stringify(game));
 });

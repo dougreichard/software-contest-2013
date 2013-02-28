@@ -81,6 +81,9 @@ void SingleGame::Start() {
 		_turn[0].fromCard( Card::getCardFromGame(0,_tournament->gameNum(), _tournament->heatNum() ).get());
 		_turn[1].fromCard(Card::getCardFromGame(1,_tournament->gameNum(), _tournament->heatNum() ).get());
 
+		assert(_turn[0].isValid());
+		assert(_turn[1].isValid());
+
 	} else {
 		_turn[0].fromRandom();
 		_turn[0].fromCard(&_turn[0]);
@@ -88,11 +91,9 @@ void SingleGame::Start() {
 		_turn[1].fromCard(&_turn[1]);
 	}
 	_turnCount = 0;
+	_catCount = 0;
 	//cout << _players[0]->getName() << " VS. " << _players[1]->getName();
 	//cout << " lets get ready to crumble\n";
-
-
-
 	
 	for (int p=0;p<2;p++)  {
 		::StringStream ss;	
@@ -192,6 +193,20 @@ void SingleGame::PlayerStepCallback(PlayerResult* arrival) {
 	int countL = _turn[0].push(pushes[0]);
 	int countR = _turn[1].push(pushes[1]);
 
+	bool catsGame = false;
+	// Hopefully help move things along
+	// If players get stuck
+	if (countL == 0 && countR==0) {
+		_turnCount+=3;
+		_catCount++;
+		if (_catCount >= 100) {
+			// Cats game
+			catsGame = true;
+		}
+	} else {
+		_catCount = 0;
+	}
+
 	// Cleanup
 	for(int i=0;i<2;i++) {
 		delete _waiting[i];
@@ -203,6 +218,9 @@ void SingleGame::PlayerStepCallback(PlayerResult* arrival) {
 	QueueItem right = {_turn[1].getPushedType(), countR};
 
 	int winner = this->_board.playTurn(left,right);
+	if (catsGame) {
+		winner = 3;
+	}
 	
 	// Game State to host
 	::StringStream ss;
